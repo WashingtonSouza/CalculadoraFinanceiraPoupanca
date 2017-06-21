@@ -10,18 +10,18 @@ namespace CalculadoraFinanceiraPoupanca
     {
         static void Main(string[] args)
         {
-            //Investimento investi = new Investimento();
+            Investimento investi = new Investimento();
 
             Console.WriteLine("Qual o valor que deseja investir? \n");
-            //investi.valorInvestimento = Convert.ToDouble(Console.ReadLine());
+            investi.valorInvestimento = Convert.ToDouble(Console.ReadLine());
 
             Console.WriteLine("Qual a taxa de juros do investimento? \n");
-            //investi.taxaJuros = Convert.ToDouble(Console.ReadLine());
+            investi.taxaJuros = Convert.ToDouble(Console.ReadLine());
 
             Console.WriteLine("Quatos meses deseja investir? \n");
-            //investi.qtdMes = Convert.ToInt32(Console.ReadLine());
+            investi.qtdMes = Convert.ToInt32(Console.ReadLine());
 
-            //investi.ContaPoupanca(investi);
+            investi.ContaPoupanca(investi);
 
             Console.ReadKey();
         }
