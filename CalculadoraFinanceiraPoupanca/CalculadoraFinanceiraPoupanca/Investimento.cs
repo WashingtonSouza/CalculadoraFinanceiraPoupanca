@@ -8,23 +8,24 @@ namespace CalculadoraFinanceiraPoupanca
 {
     class Investimento
     {
-        public double valorInvestimento;
-        public int qtdMes;
-        public double taxaJuros = 1.005;
-        public double valorTotal;
+        public double ValorInvestimento;
+        public int QtdMes;
+        public double TaxaJuros;
+        public double ValorTotal;
+        public List<double> JurosMensal = new List<double>();
+        private double Juros;
+
 
         public void ContaPoupanca()
         {
-            valorTotal = valorInvestimento;
+            ValorTotal = ValorInvestimento;
 
-            for (int i = 1; i <= qtdMes; i++)
+            for (int i = 1; i <= QtdMes; i++)
             {
-                valorTotal = valorTotal * taxaJuros;
-                Console.WriteLine("juros do mes é {0: 0.##}", valorTotal - valorInvestimento);
+                Juros = (ValorTotal * TaxaJuros) / 100;
+                JurosMensal.Add(Juros);
+                ValorTotal = ValorTotal + Juros;
             }
-
-            Console.WriteLine("==============================================================================\n");
-            Console.WriteLine("O investimento Total com a aplicação da Taxa de Juros é: {0: 0.##}", valorTotal);
         }
     }
 }

@@ -10,15 +10,28 @@ namespace CalculadoraFinanceiraPoupanca
     {
         static void Main(string[] args)
         {
-            Investimento investi = new Investimento();
+            Investimento investimento = new Investimento();
 
             Console.WriteLine("Qual o valor que deseja investir? \n");
-            investi.valorInvestimento = Convert.ToDouble(Console.ReadLine());
+            investimento.ValorInvestimento = Convert.ToDouble(Console.ReadLine());
                       
             Console.WriteLine("Quatos meses deseja investir? \n");
-            investi.qtdMes = Convert.ToInt32(Console.ReadLine());
+            investimento.QtdMes = Convert.ToInt32(Console.ReadLine());
 
-            investi.ContaPoupanca();
+            Console.WriteLine("Qual a taxa de juros? \n");
+            investimento.TaxaJuros = Convert.ToDouble(Console.ReadLine());
+
+            investimento.ContaPoupanca();
+
+            var i = 0;
+            foreach(var juros in investimento.JurosMensal)
+            {
+                i++;
+                Console.WriteLine("juros do mes {0} é {1: 0.##}", i, juros);
+            }
+
+            Console.WriteLine("==============================================================================\n");
+            Console.WriteLine("O investimento Total com a aplicação da Taxa de Juros é: {0: 0.##}", investimento.ValorTotal);
 
             Console.ReadKey();
         }
